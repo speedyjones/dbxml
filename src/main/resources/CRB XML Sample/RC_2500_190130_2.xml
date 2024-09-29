@@ -1,0 +1,21 @@
+<ConsumerRollback>
+    <HEADER>
+        <RT>100</RT>
+        <SID>2500</SID>
+        <FT>01</FT>
+        <ASPS>50</ASPS>
+        <HSD>20181209</HSD>
+        <HED>20190129</HED>
+        <FCD>20190129</FCD>
+    </HEADER>
+    <LAD>
+        <RT>200</RT>
+        <AN>AL100009110</AN>
+    </LAD>
+
+    <TRIALER>
+        <RT>300</RT>
+        <SID>2500</SID>
+        <TNC>000000001</TNC>
+    </TRIALER>
+</ConsumerRollback>

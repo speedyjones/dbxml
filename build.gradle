@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.18'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'war'
+}
+
+group = 'com.dbxml'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '1.8'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.14'
+    compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.18'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.18'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.7.18'
+    runtimeOnly group: 'com.mysql', name: 'mysql-connector-j'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    runtimeOnly group: 'com.mysql', name: 'mysql-connector-j'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.18'
+//    implementation 'com.fasterxml.woodstox:woodstox-core:6.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter:2.7.18'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.7.18'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('bootBuildImage') {
+    builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

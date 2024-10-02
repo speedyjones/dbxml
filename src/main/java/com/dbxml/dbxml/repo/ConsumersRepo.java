@@ -1,4 +1,4 @@
-package com.dbxml.dbxml;
+package com.dbxml.dbxml.repo;
 
 import com.dbxml.dbxml.domains.entites.Consumer;
 import org.springframework.data.jpa.repository.JpaRepository;

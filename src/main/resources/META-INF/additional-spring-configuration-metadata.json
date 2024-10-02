@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "resilience4j.ratelimiter.myRateLimiter.limitForPeriod",
+      "type": "java.lang.String",
+      "description": "Description for resilience4j.ratelimiter.myRateLimiter.limitForPeriod."
+    },
+    {
+      "name": "resilience4j.ratelimiter.myRateLimiter.limitRefreshPeriod",
+      "type": "java.lang.String",
+      "description": "Description for resilience4j.ratelimiter.myRateLimiter.limitRefreshPeriod."
+    }
+  ]
+}

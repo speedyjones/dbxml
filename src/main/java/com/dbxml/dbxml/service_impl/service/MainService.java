@@ -1,6 +1,11 @@
-package com.dbxml.dbxml;
+package com.dbxml.dbxml.service_impl.service;
 
+import com.dbxml.dbxml.config.ConstantFields;
+import com.dbxml.dbxml.config.CustomException;
 import com.dbxml.dbxml.domains.dao.LadDao;
+import com.dbxml.dbxml.repo.MainRepo;
+import io.github.bucket4j.Bucket;
+import io.github.bucket4j.ConsumptionProbe;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,7 +32,7 @@ import java.util.List;
 public class MainService {
 
     private final MainRepo mainRepo;
-
+    private final Bucket bucket;
 
     public String getXmlData(List<LadDao> ladDao) throws IOException {
 
@@ -117,5 +122,15 @@ public class MainService {
 
         return null;
 
+    }
+
+    public String helloTest() {
+        ConsumptionProbe probe = bucket.tryConsumeAndReturnRemaining(1);
+        if (probe.isConsumed()) {
+            return "hello msg from dbxml App";
+
+        } else {
+            throw new CustomException("Try again after " + probe.getNanosToWaitForRefill() / 1000000 + " ms.");
+        }
     }
 }

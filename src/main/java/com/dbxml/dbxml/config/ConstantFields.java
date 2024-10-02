@@ -1,4 +1,4 @@
-package com.dbxml.dbxml;
+package com.dbxml.dbxml.config;
 
 import org.springframework.stereotype.Component;
 
